@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7964871419325095411}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,12 +131,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ac121f01afc0d42afdd8f0764de8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireball: {fileID: 4898821657752954683, guid: f4378b7be2634a24aa15dfa4b1bbe0a6, type: 3}
   speed: 8
   jumpHeight: 4
   gravity: 40
   airControl: 3
   numAirJumps: 1
   blinkDistance: 10
+  timeScaleSpeed: 0.001
+  minTimeScale: 0.02
 --- !u!1 &7964871419451177423
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,3 +238,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 200
+  pitch: 0
