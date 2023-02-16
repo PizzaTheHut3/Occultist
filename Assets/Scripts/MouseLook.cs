@@ -7,7 +7,8 @@ public class MouseLook : MonoBehaviour
 
     Transform playerBody;
     public float mouseSensitivity = 200;
-    float pitch = 0;
+    private float finalMouseSensitivity;
+    public float pitch = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -15,13 +16,15 @@ public class MouseLook : MonoBehaviour
         playerBody = transform.parent.transform;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        finalMouseSensitivity = mouseSensitivity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        finalMouseSensitivity = mouseSensitivity / Time.timeScale;
+        float moveX = Input.GetAxis("Mouse X") * finalMouseSensitivity * Time.deltaTime;
+        float moveY = Input.GetAxis("Mouse Y") * finalMouseSensitivity * Time.deltaTime;
 
         //yaw
         playerBody.Rotate(Vector3.up * moveX);
