@@ -131,9 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ac121f01afc0d42afdd8f0764de8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball: {fileID: 4898821657752954683, guid: f4378b7be2634a24aa15dfa4b1bbe0a6, type: 3}
+  fireball: {fileID: 1254724754748870, guid: ead2eb1ec6d8ee54fa5d36c7f5e30eef, type: 3}
   speed: 8
+  health: 100
   jumpHeight: 4
+  knockback: 2
   gravity: 40
   airControl: 3
   numAirJumps: 1

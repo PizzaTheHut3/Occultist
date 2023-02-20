@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,10 +12,12 @@ public class PlayerController : MonoBehaviour
     public GameObject fireball;
     public float speed = 8f;
     private float finalSpeed;
+    public int health = 100;
     public float jumpHeight = 4f;
+    public float knockback = 2f;
     public float gravity = 40f;
     public float airControl = 3;
-    public int numAirJumps = 1; 
+    public int numAirJumps = 1;
     public float blinkDistance = 10f;
     private int airJumpsLeft;
     private bool isJumpPressed;
@@ -22,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float timeScaleSpeed = 0.001f;
     public float minTimeScale = 0.2f;
     private float fixedDeltaTime;
+    private Slider slider;
 
     // Start is called before the first frame update
     void Start()
@@ -35,27 +40,38 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             isJumpPressed = true;
-        } 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
             isBlinkPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             isFireballPressed = true;
         }
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            if (Time.timeScale > minTimeScale) {
+            if (Time.timeScale > minTimeScale)
+            {
                 Time.timeScale -= timeScaleSpeed;
-            } else {
+            }
+            else
+            {
                 Time.timeScale = minTimeScale;
             }
-        } else {
-            if (Time.timeScale < 1f) {
+        }
+        else
+        {
+            if (Time.timeScale < 1f)
+            {
                 Time.timeScale += timeScaleSpeed;
-            } else {
+            }
+            else
+            {
                 Time.timeScale = 1f;
             }
         }
@@ -64,31 +80,38 @@ public class PlayerController : MonoBehaviour
         finalSpeed = speed * (1f / Time.timeScale);
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         // gets user movement input
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         input = finalSpeed * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
 
         // handles jumping and double jumping
-        if(controller.isGrounded) {
+        if (controller.isGrounded)
+        {
             moveDirection = input;
             airJumpsLeft = numAirJumps;
-            if(isJumpPressed) {
+            if (isJumpPressed)
+            {
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
             }
-            else {
+            else
+            {
                 moveDirection.y = 0f;
             }
         }
-        else {
-            if(isJumpPressed && airJumpsLeft > 0) { //handles double jumping
+        else
+        {
+            if (isJumpPressed && airJumpsLeft > 0)
+            { //handles double jumping
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
                 airJumpsLeft--;
             }
-            else {
+            else
+            {
                 input.y = moveDirection.y;
                 moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
             }
@@ -96,13 +119,15 @@ public class PlayerController : MonoBehaviour
 
         // handles blinking. Currently player blinks in the direction they are moving and not the direction the are facing.
         // This means that blinking is always horizontal.
-        if(isBlinkPressed) {
+        if (isBlinkPressed)
+        {
             isBlinkPressed = false;
             controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
         }
 
         // handles shooting fireball. 
-        if(isFireballPressed) {
+        if (isFireballPressed)
+        {
             isFireballPressed = false;
             // camera = transform.GetComponent<Camera>();
             // GameObject cam = FindGameObjectWithTag("MainCamera");
@@ -112,5 +137,26 @@ public class PlayerController : MonoBehaviour
         // applies gravity and moves player
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    void OnCollisionEnter(Collision hit)
+    {
+        if (hit.gameObject.tag == "MeleeEnemy")
+        {
+            health -= 15;
+            Debug.Log("Player health: " + health);
+        }
+        if (hit.gameObject.tag == "Fireball")
+        {
+            health -= 20;
+            Debug.Log("Player health: " + health);
+        }
+        if (health <= 0)
+        {
+            Debug.Log("Player has died");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        slider = GameObject.Find("HealthBar").GetComponent<Slider>();
+        slider.value = health;
     }
 }

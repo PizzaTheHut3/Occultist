@@ -9,6 +9,7 @@ public class WitchDoctorBehavior : MonoBehaviour
     public GameObject projectile;
     public GameObject firePoint;
     public float attackCooldown = .9f;
+    public int health = 20;
 
     Animator anim;
     float cooldown = 0f;
@@ -32,7 +33,7 @@ public class WitchDoctorBehavior : MonoBehaviour
         {
             if (cooldown <= 0)
             {
-                Instantiate(projectile, firePoint.transform.position + transform.forward, transform.rotation);
+                Instantiate(projectile, firePoint.transform.position + transform.forward, transform.rotation * Quaternion.Euler(5, 0, 0));
                 cooldown = 1f;
                 anim.SetBool("Shoot_b", true);
             }
@@ -42,5 +43,22 @@ public class WitchDoctorBehavior : MonoBehaviour
                 anim.SetBool("Shoot_b", false);
             }
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Fireball")
+        {
+            health -= 10;
+        }
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
