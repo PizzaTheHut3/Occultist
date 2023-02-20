@@ -6,6 +6,7 @@ public class UndeadHeavyBehavior : MonoBehaviour
 {
     public GameObject player;
     public float speed = 3f;
+    public int health = 30;
 
     Animator anim;
     // Start is called before the first frame update
@@ -28,5 +29,22 @@ public class UndeadHeavyBehavior : MonoBehaviour
         {
             anim.SetBool("Shoot_b", false);
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Fireball")
+        {
+            health -= 10;
+        }
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
