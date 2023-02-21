@@ -158,10 +158,21 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0)
         {
-            Debug.Log("Player has died");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            PlayerDie();
         }
         slider = GameObject.Find("HealthBar").GetComponent<Slider>();
         slider.value = health;
+    }
+
+    void OnTriggerEnter(Collider hit)
+    {
+        if (hit.gameObject.tag == "Lava")
+        {
+            PlayerDie();
+        }
+    }
+    void PlayerDie()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
