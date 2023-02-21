@@ -43,7 +43,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumpPressed = true;
-        } else if (Input.GetKeyUp(KeyCode.Space)) {
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
             isJumpPressed = false;
         }
 
