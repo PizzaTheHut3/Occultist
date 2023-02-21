@@ -43,7 +43,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumpPressed = true;
+        } else if (Input.GetKeyUp(KeyCode.Space)) {
+            isJumpPressed = false;
         }
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             isBlinkPressed = true;
@@ -131,7 +134,7 @@ public class PlayerController : MonoBehaviour
             isFireballPressed = false;
             // camera = transform.GetComponent<Camera>();
             // GameObject cam = FindGameObjectWithTag("MainCamera");
-            Instantiate(fireball, transform.position + new Vector3(0f, 1.2f, 0f), Camera.main.transform.rotation);
+            Instantiate(fireball, transform.position + (transform.forward * 1f) + new Vector3(0f, 1.2f, 0f), Camera.main.transform.rotation);
         }
 
         // applies gravity and moves player
