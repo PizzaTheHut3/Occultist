@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
     public float airControl = 3;
     public int numAirJumps = 1;
     public float blinkDistance = 10f;
+    public AudioClip blinkSFX;
+    public AudioClip jumpSFX;
+    public AudioClip walkSFX;
+    public AudioClip timeSlowSFX;
+    public AudioClip deathSFX;
+    public AudioClip hitSFX;
     private int airJumpsLeft;
     private bool isJumpPressed;
     private bool isBlinkPressed;
@@ -60,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
+            AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
             if (Time.timeScale > minTimeScale)
             {
                 Time.timeScale -= timeScaleSpeed;
@@ -101,6 +108,7 @@ public class PlayerController : MonoBehaviour
             {
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
+                AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
             }
             else
             {
@@ -114,6 +122,7 @@ public class PlayerController : MonoBehaviour
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
                 airJumpsLeft--;
+                AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
             }
             else
             {
@@ -128,6 +137,7 @@ public class PlayerController : MonoBehaviour
         {
             isBlinkPressed = false;
             controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
+            AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
         }
 
         // handles shooting fireball. 
@@ -148,6 +158,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hit.gameObject.tag == "MeleeEnemy")
         {
+            AudioSource.PlayClipAtPoint(hitSFX, transform.position);
             health -= 15;
             Debug.Log("Player health: " + health);
         }
@@ -158,7 +169,8 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0)
         {
-            PlayerDie();
+            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+            Invoke("PlayerDie", .15f);
         }
         slider = GameObject.Find("HealthBar").GetComponent<Slider>();
         slider.value = health;
@@ -168,7 +180,8 @@ public class PlayerController : MonoBehaviour
     {
         if (hit.gameObject.tag == "Lava")
         {
-            PlayerDie();
+            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+            Invoke("PlayerDie", .15f);
         }
     }
     void PlayerDie()
