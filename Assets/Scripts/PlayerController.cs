@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public float minTimeScale = 0.2f;
     private float fixedDeltaTime;
     private Slider slider;
+    private Image crosshairImage;
+    private Color crosshairColor;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
         airJumpsLeft = numAirJumps;
         fixedDeltaTime = Time.fixedDeltaTime;
         finalSpeed = speed;
+        crosshairImage = GameObject.Find("Crosshair").GetComponent<Image>();
+        crosshairColor = crosshairImage.color;
     }
 
     // Update is called once per frame
@@ -90,6 +94,9 @@ public class PlayerController : MonoBehaviour
         // Adjust fixed delta time according to timescale
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         finalSpeed = speed * (1f / Time.timeScale);
+
+        // handles crosshair change on enemy acquired
+        CrosshairChange();
     }
 
     void FixedUpdate()
@@ -152,6 +159,29 @@ public class PlayerController : MonoBehaviour
         // applies gravity and moves player
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    void CrosshairChange()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.gameObject.tag == "MeleeEnemy" || hit.collider.gameObject.tag == "Enemy")
+            {
+                crosshairImage.color = Color.Lerp(crosshairImage.color, Color.red, Time.deltaTime * 5);
+                crosshairImage.transform.localScale = Vector3.Lerp(crosshairImage.transform.localScale, new Vector3(.7f, .7f, .7f), Time.deltaTime * 5);
+            }
+            else
+            {
+                crosshairImage.color = Color.Lerp(crosshairImage.color, crosshairColor, Time.deltaTime * 2);
+                crosshairImage.transform.localScale = Vector3.Lerp(crosshairImage.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 5);
+            }
+        }
+        else
+        {
+            crosshairImage.color = Color.Lerp(crosshairImage.color, crosshairColor, Time.deltaTime * 2);
+            crosshairImage.transform.localScale = Vector3.Lerp(crosshairImage.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 5);
+        }
     }
 
     void OnCollisionEnter(Collision hit)
