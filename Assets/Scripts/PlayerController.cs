@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 8f;
     private float finalSpeed;
     public int health = 100;
+    public int maxBulletTime = 100;
+    private int bulletTime;
+    public bool hasBlink = true;
     public float jumpHeight = 4f;
     public float knockback = 2f;
     public float gravity = 40f;
@@ -29,12 +32,16 @@ public class PlayerController : MonoBehaviour
     private bool isJumpPressed;
     private bool isBlinkPressed;
     private bool isFireballPressed;
+    private int fireballCountdown;
+    public int fireballCooldown = 60;
     public float timeScaleSpeed = 0.001f;
     public float minTimeScale = 0.2f;
     private float fixedDeltaTime;
     private Slider slider;
     private Image crosshairImage;
     private Color crosshairColor;
+    private Slider bulletTimeUI;
+    private GameObject blinkUI;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +52,11 @@ public class PlayerController : MonoBehaviour
         finalSpeed = speed;
         crosshairImage = GameObject.Find("Crosshair").GetComponent<Image>();
         crosshairColor = crosshairImage.color;
+        bulletTime = maxBulletTime;
+        hasBlink = true;
+        bulletTimeUI = GameObject.Find("BulletTime").GetComponent<Slider>();
+        bulletTimeUI.value = maxBulletTime;
+        blinkUI = GameObject.Find("Blink");
     }
 
     // Update is called once per frame
@@ -68,9 +80,11 @@ public class PlayerController : MonoBehaviour
             isFireballPressed = true;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl) && bulletTime > 0)
         {
             AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
+            bulletTime -= 1;
+            bulletTimeUI.value = bulletTime;
             if (Time.timeScale > minTimeScale)
             {
                 Time.timeScale -= timeScaleSpeed;
@@ -91,6 +105,17 @@ public class PlayerController : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
+
+        if (fireballCountdown > 0) {
+            fireballCountdown -= 1;
+        }
+
+        if (hasBlink) {
+            blinkUI.SetActive(true);
+        } else {
+            blinkUI.SetActive(false);
+        }
+        
         // Adjust fixed delta time according to timescale
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         finalSpeed = speed * (1f / Time.timeScale);
@@ -140,17 +165,19 @@ public class PlayerController : MonoBehaviour
 
         // handles blinking. Currently player blinks in the direction they are moving and not the direction the are facing.
         // This means that blinking is always horizontal.
-        if (isBlinkPressed)
+        if (isBlinkPressed && hasBlink)
         {
             isBlinkPressed = false;
+            hasBlink = false;
             controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
             AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
         }
 
         // handles shooting fireball. 
-        if (isFireballPressed)
+        if (isFireballPressed & fireballCountdown <= 0)
         {
             isFireballPressed = false;
+            fireballCountdown = fireballCooldown;
             // camera = transform.GetComponent<Camera>();
             // GameObject cam = FindGameObjectWithTag("MainCamera");
             Instantiate(fireball, transform.position + (transform.forward * 1f) + new Vector3(0f, 1.2f, 0f), Camera.main.transform.rotation);
@@ -212,6 +239,12 @@ public class PlayerController : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
             Invoke("PlayerDie", .15f);
+        }
+
+        if (hit.gameObject.tag == "Soul") {
+            bulletTime = maxBulletTime;
+            hasBlink = true;
+            bulletTimeUI.value = bulletTime;
         }
     }
     void PlayerDie()
