@@ -6,9 +6,10 @@ public class sink : MonoBehaviour
 {
 
     public float speed = 2;
-    private bool s = false;
+    private bool isSink = false;
     private Vector3 origin;
     private Vector3 low;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,12 @@ public class sink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (s)
+
+    }
+
+    void FixedUpdate() 
+    {
+        if (isSink)
         {
             transform.position = Vector3.MoveTowards(transform.position, low, speed * Time.deltaTime);
         }
@@ -27,14 +33,13 @@ public class sink : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, origin, speed * Time.deltaTime);
         }
-
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            s = true;
+            isSink = true;
         }
     }
 
@@ -42,7 +47,7 @@ public class sink : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            s = false;
+            isSink = false;
         }
     }
 }
