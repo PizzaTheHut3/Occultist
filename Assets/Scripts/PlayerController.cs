@@ -125,7 +125,6 @@ public class PlayerController : MonoBehaviour
         // handles jumping and double jumping
         if (grounded)
         {
-            print("grounded");
             moveDirection = input;
             airJumpsLeft = numAirJumps;
             if (isJumpPressed)
@@ -141,7 +140,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            print("not grounded");
             if (isJumpPressed && airJumpsLeft > 0)
             { //handles double jumping
                 isJumpPressed = false;
