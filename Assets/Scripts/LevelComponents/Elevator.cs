@@ -6,7 +6,7 @@ public class Elevator : MonoBehaviour
 {
     public float speed = 5;
     public GameObject liftTo;
-    private bool lift = false;
+    private bool isLift = false;
    
     void Start()
     {
@@ -16,17 +16,22 @@ public class Elevator : MonoBehaviour
     
     void Update()
     {
-        
-        if (lift){
-            transform.position = Vector3.MoveTowards(transform.position, liftTo.transform.position,speed* Time.deltaTime);
-        }
 
-         
     }
 
-    private void OnTriggerEnter(Collider collision){
-        if (collision.gameObject.CompareTag("Player")){
-            lift = true;
+    void FixedUpdate()
+    {
+        if (isLift)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, liftTo.transform.position,speed* Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isLift = true;
         }
     }
 }

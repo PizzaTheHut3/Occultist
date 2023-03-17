@@ -28,13 +28,19 @@ public class PlayerController : MonoBehaviour
     private int airJumpsLeft;
     private bool isJumpPressed;
     private bool isBlinkPressed;
+    private bool isBlinkActive = false;
     private bool isFireballPressed;
     public float timeScaleSpeed = 0.001f;
     public float minTimeScale = 0.2f;
     private float fixedDeltaTime;
+    private float blinkStep = 1.3f;
+    private int numBlinkSteps;
+    private int currentBlinkStep = 0;
+    private Vector3 blinkDirection = Vector3.forward;
     private Slider slider;
     private Image crosshairImage;
     private Color crosshairColor;
+    private bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +51,8 @@ public class PlayerController : MonoBehaviour
         finalSpeed = speed;
         crosshairImage = GameObject.Find("Crosshair").GetComponent<Image>();
         crosshairColor = crosshairImage.color;
+        grounded = false;
+        numBlinkSteps = (int) (blinkDistance/blinkStep);
     }
 
     // Update is called once per frame
@@ -66,6 +74,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isFireballPressed = true;
+        }
+        if (controller.isGrounded)
+        {
+            grounded = true;
+        }
+        else 
+        {
+            grounded = false;
         }
 
         if (Input.GetKey(KeyCode.LeftControl))
@@ -107,8 +123,9 @@ public class PlayerController : MonoBehaviour
         input = finalSpeed * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
 
         // handles jumping and double jumping
-        if (controller.isGrounded)
+        if (grounded)
         {
+            print("grounded");
             moveDirection = input;
             airJumpsLeft = numAirJumps;
             if (isJumpPressed)
@@ -124,6 +141,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            print("not grounded");
             if (isJumpPressed && airJumpsLeft > 0)
             { //handles double jumping
                 isJumpPressed = false;
@@ -140,11 +158,32 @@ public class PlayerController : MonoBehaviour
 
         // handles blinking. Currently player blinks in the direction they are moving and not the direction the are facing.
         // This means that blinking is always horizontal.
-        if (isBlinkPressed)
+        if (isBlinkPressed || isBlinkActive)
         {
-            isBlinkPressed = false;
-            controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
-            AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
+            if(!isBlinkActive) 
+            {
+                AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
+                isBlinkActive = true;
+                isBlinkPressed = false;
+                if(moveHorizontal == 0 && moveVertical == 0)
+                {
+                    blinkDirection = transform.forward;
+                }
+                else
+                {
+                    blinkDirection = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+                }
+            }
+            if(currentBlinkStep == numBlinkSteps) 
+            {
+                isBlinkActive = false;
+                currentBlinkStep = 0;
+            }
+            else
+            {
+                controller.Move(blinkStep * blinkDirection);
+                currentBlinkStep++;
+            }
         }
 
         // handles shooting fireball. 
@@ -214,6 +253,13 @@ public class PlayerController : MonoBehaviour
             Invoke("PlayerDie", .15f);
         }
     }
+
+    // Used to manually set if the player in grounded for moving platforms
+    public void SetGrounded(bool g) 
+    {
+        grounded = g;
+    }
+
     void PlayerDie()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
