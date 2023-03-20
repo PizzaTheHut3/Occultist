@@ -7,6 +7,7 @@ public class WitchDoctorBehavior : MonoBehaviour
     public GameObject player;
     public float speed = 2f;
     public GameObject projectile;
+    public GameObject soul;
     public GameObject firePoint;
     public float attackCooldown = .9f;
     public int health = 20;
@@ -65,5 +66,6 @@ public class WitchDoctorBehavior : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        Instantiate(soul, transform.position, transform.rotation);
     }
 }

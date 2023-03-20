@@ -7,6 +7,7 @@ public class UndeadHeavyBehavior : MonoBehaviour
     public GameObject player;
     public float speed = 3f;
     public int health = 30;
+    public GameObject soul;
 
     Animator anim;
     // Start is called before the first frame update
@@ -50,5 +51,6 @@ public class UndeadHeavyBehavior : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        Instantiate(soul, transform.position, transform.rotation);
     }
 }
