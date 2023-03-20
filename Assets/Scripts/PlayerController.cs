@@ -237,7 +237,8 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
-            Invoke("PlayerDie", .15f);
+            LevelManager.isGameOver = true;
+            Invoke("PlayerDie", 1f);
         }
         slider = GameObject.Find("HealthBar").GetComponent<Slider>();
         slider.value = health;
@@ -248,7 +249,8 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "Lava")
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
-            Invoke("PlayerDie", .15f);
+            LevelManager.isGameOver = true;
+            Invoke("PlayerDie", 1f);
         }
     }
 
