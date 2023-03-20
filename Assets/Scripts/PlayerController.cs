@@ -19,14 +19,28 @@ public class PlayerController : MonoBehaviour
     public float airControl = 3;
     public int numAirJumps = 1;
     public float blinkDistance = 10f;
+    public AudioClip blinkSFX;
+    public AudioClip jumpSFX;
+    public AudioClip walkSFX;
+    public AudioClip timeSlowSFX;
+    public AudioClip deathSFX;
+    public AudioClip hitSFX;
     private int airJumpsLeft;
     private bool isJumpPressed;
     private bool isBlinkPressed;
+    private bool isBlinkActive = false;
     private bool isFireballPressed;
     public float timeScaleSpeed = 0.001f;
     public float minTimeScale = 0.2f;
     private float fixedDeltaTime;
+    private float blinkStep = 1.3f;
+    private int numBlinkSteps;
+    private int currentBlinkStep = 0;
+    private Vector3 blinkDirection = Vector3.forward;
     private Slider slider;
+    private Image crosshairImage;
+    private Color crosshairColor;
+    private bool grounded;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +49,10 @@ public class PlayerController : MonoBehaviour
         airJumpsLeft = numAirJumps;
         fixedDeltaTime = Time.fixedDeltaTime;
         finalSpeed = speed;
+        crosshairImage = GameObject.Find("Crosshair").GetComponent<Image>();
+        crosshairColor = crosshairImage.color;
+        grounded = false;
+        numBlinkSteps = (int) (blinkDistance/blinkStep);
     }
 
     // Update is called once per frame
@@ -43,7 +61,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumpPressed = true;
-        } else if (Input.GetKeyUp(KeyCode.Space)) {
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
             isJumpPressed = false;
         }
 
@@ -55,9 +75,18 @@ public class PlayerController : MonoBehaviour
         {
             isFireballPressed = true;
         }
+        if (controller.isGrounded)
+        {
+            grounded = true;
+        }
+        else 
+        {
+            grounded = false;
+        }
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
+            AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
             if (Time.timeScale > minTimeScale)
             {
                 Time.timeScale -= timeScaleSpeed;
@@ -81,6 +110,9 @@ public class PlayerController : MonoBehaviour
         // Adjust fixed delta time according to timescale
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         finalSpeed = speed * (1f / Time.timeScale);
+
+        // handles crosshair change on enemy acquired
+        CrosshairChange();
     }
 
     void FixedUpdate()
@@ -91,7 +123,7 @@ public class PlayerController : MonoBehaviour
         input = finalSpeed * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
 
         // handles jumping and double jumping
-        if (controller.isGrounded)
+        if (grounded)
         {
             moveDirection = input;
             airJumpsLeft = numAirJumps;
@@ -99,6 +131,7 @@ public class PlayerController : MonoBehaviour
             {
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
+                AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
             }
             else
             {
@@ -112,6 +145,7 @@ public class PlayerController : MonoBehaviour
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
                 airJumpsLeft--;
+                AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
             }
             else
             {
@@ -122,10 +156,32 @@ public class PlayerController : MonoBehaviour
 
         // handles blinking. Currently player blinks in the direction they are moving and not the direction the are facing.
         // This means that blinking is always horizontal.
-        if (isBlinkPressed)
+        if (isBlinkPressed || isBlinkActive)
         {
-            isBlinkPressed = false;
-            controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
+            if(!isBlinkActive) 
+            {
+                AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
+                isBlinkActive = true;
+                isBlinkPressed = false;
+                if(moveHorizontal == 0 && moveVertical == 0)
+                {
+                    blinkDirection = transform.forward;
+                }
+                else
+                {
+                    blinkDirection = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+                }
+            }
+            if(currentBlinkStep == numBlinkSteps) 
+            {
+                isBlinkActive = false;
+                currentBlinkStep = 0;
+            }
+            else
+            {
+                controller.Move(blinkStep * blinkDirection);
+                currentBlinkStep++;
+            }
         }
 
         // handles shooting fireball. 
@@ -142,10 +198,34 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
     }
 
+    void CrosshairChange()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.gameObject.tag == "MeleeEnemy" || hit.collider.gameObject.tag == "Enemy")
+            {
+                crosshairImage.color = Color.Lerp(crosshairImage.color, Color.red, Time.deltaTime * 5);
+                crosshairImage.transform.localScale = Vector3.Lerp(crosshairImage.transform.localScale, new Vector3(.7f, .7f, .7f), Time.deltaTime * 5);
+            }
+            else
+            {
+                crosshairImage.color = Color.Lerp(crosshairImage.color, crosshairColor, Time.deltaTime * 2);
+                crosshairImage.transform.localScale = Vector3.Lerp(crosshairImage.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 5);
+            }
+        }
+        else
+        {
+            crosshairImage.color = Color.Lerp(crosshairImage.color, crosshairColor, Time.deltaTime * 2);
+            crosshairImage.transform.localScale = Vector3.Lerp(crosshairImage.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 5);
+        }
+    }
+
     void OnCollisionEnter(Collision hit)
     {
         if (hit.gameObject.tag == "MeleeEnemy")
         {
+            AudioSource.PlayClipAtPoint(hitSFX, transform.position);
             health -= 15;
             Debug.Log("Player health: " + health);
         }
@@ -156,10 +236,30 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0)
         {
-            Debug.Log("Player has died");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+            Invoke("PlayerDie", .15f);
         }
         slider = GameObject.Find("HealthBar").GetComponent<Slider>();
         slider.value = health;
+    }
+
+    void OnTriggerEnter(Collider hit)
+    {
+        if (hit.gameObject.tag == "Lava")
+        {
+            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+            Invoke("PlayerDie", .15f);
+        }
+    }
+
+    // Used to manually set if the player in grounded for moving platforms
+    public void SetGrounded(bool g) 
+    {
+        grounded = g;
+    }
+
+    void PlayerDie()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

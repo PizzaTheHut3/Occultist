@@ -12,6 +12,7 @@ public class ProjectileMover : MonoBehaviour
     public GameObject flash;
     private Rigidbody rb;
     public GameObject[] Detached;
+    public AudioClip hitSound;
 
     void Start()
     {
@@ -78,6 +79,10 @@ public class ProjectileMover : MonoBehaviour
             {
                 detachedPrefab.transform.parent = null;
             }
+        }
+        if (hitSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hitSound, transform.position);
         }
         Destroy(gameObject, 0.1f);
     }
