@@ -136,7 +136,7 @@ MonoBehaviour:
   fireball: {fileID: 1254724754748870, guid: ead2eb1ec6d8ee54fa5d36c7f5e30eef, type: 3}
   speed: 8
   health: 100
-  maxBulletTime: 100
+  maxBulletTime: 1000
   hasBlink: 1
   jumpHeight: 4
   knockback: 2
@@ -153,8 +153,8 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   soulCollectSFX: {fileID: 8300000, guid: 1210f0059d3cb234d9e1384c47d90c59, type: 3}
   fireballCooldown: 60
-  timeScaleSpeed: 0.001
-  minTimeScale: 0.02
+  timeScaleSpeed: 0.05
+  minTimeScale: 0.1
 --- !u!114 &1302955675
 MonoBehaviour:
   m_ObjectHideFlags: 0

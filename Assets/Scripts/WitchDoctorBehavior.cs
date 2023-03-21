@@ -23,7 +23,7 @@ public class WitchDoctorBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // if player is too far away, skip interaction
         if (Vector3.Distance(transform.position, player.transform.position) > 50f)
