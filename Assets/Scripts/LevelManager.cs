@@ -8,14 +8,17 @@ public class LevelManager : MonoBehaviour
 {
     public static bool isGameOver = false;
     public Text gameText;
+    public Text enemiesKilledText;
     public string nextLevel = "";
     public AudioClip winSFX;
+    int enemiesKilled = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         isGameOver = false;
         gameText.text = "GameOver!";
+        enemiesKilledText.text = "0 SLAIN";
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class LevelManager : MonoBehaviour
         if (isGameOver){
             gameText.gameObject.SetActive(true);
         }
+        enemiesKilledText.text = string.Format("{0} SLAIN", enemiesKilled);
     }
 
     private void OnTriggerEnter(Collider other){
@@ -32,7 +36,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void LevelBeat(){
+    public void LevelBeat(){
         isGameOver = true;
         gameText.text = "Level Complete!";
         
@@ -42,7 +46,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void LevelLost() {
+        isGameOver = true;
+        gameText.gameObject.SetActive(true);
+        gameText.text = "GAME OVER!";
+        Invoke("LoadCurrentLevel", 2);
+    }
+
     void LoadLevel(){
         SceneManager.LoadScene(nextLevel);
+    }
+
+    void LoadCurrentLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void EnemyKilled() {
+        enemiesKilled += 1;
     }
 }

@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6882038739187062485}
   - component: {fileID: 6882038739187062484}
   - component: {fileID: 6882038739187062483}
-  - component: {fileID: 6882038739187062486}
+  - component: {fileID: 1655661135}
   m_Layer: 0
   m_Name: EndFlag
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6882038739187062481}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 454.44885, y: -20.42958, z: -29.152466}
   m_LocalScale: {x: 0.5, y: 2, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -193,11 +193,11 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.9699707
-  m_Height: 2.2409449
+  m_Radius: 1.244873
+  m_Height: 2.2266464
   m_Direction: 1
-  m_Center: {x: 0.016052246, y: -0.06801653, z: -0.00000011920929}
---- !u!114 &6882038739187062486
+  m_Center: {x: 0, y: -0.028213501, z: 0.03869629}
+--- !u!114 &1655661135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,9 +206,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6882038739187062481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28923a6388227d458cdaed8a6a613b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 043d4746b58539f4ca6f5a6651f0037c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameText: {fileID: 0}
+  enemiesKilledText: {fileID: 0}
   nextLevel: Level2
   winSFX: {fileID: 8300000, guid: 2f105c8cc821a654c82588fe5d328ca8, type: 3}

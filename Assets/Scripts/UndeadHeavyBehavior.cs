@@ -36,8 +36,13 @@ public class UndeadHeavyBehavior : MonoBehaviour
         }
     }
 
+    
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Lava")
+        {
+            Die();
+        }
         if (collision.gameObject.tag == "Fireball")
         {
             health -= 10;
@@ -50,7 +55,8 @@ public class UndeadHeavyBehavior : MonoBehaviour
 
     void Die()
     {
+        FindObjectOfType<LevelManager>().EnemyKilled();
         Destroy(gameObject);
-        Instantiate(soul, transform.position, transform.rotation);
+        Instantiate(soul, transform.position + new Vector3(0f, 1f, 0f), transform.rotation);
     }
 }

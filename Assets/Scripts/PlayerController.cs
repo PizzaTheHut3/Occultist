@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSFX;
     public AudioClip walkSFX;
     public AudioClip timeSlowSFX;
+    public AudioClip timeSpeedupSFX;
     public AudioClip deathSFX;
     public AudioClip hitSFX;
+    public AudioClip soulCollectSFX;
     private int airJumpsLeft;
     private bool isJumpPressed;
     private bool isBlinkPressed;
@@ -75,15 +77,29 @@ public class PlayerController : MonoBehaviour
         {
             isBlinkPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isBlinkPressed = false;
+        }
+
+        if (Input.GetMouseButtonDown(0))
         {
             isFireballPressed = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isFireballPressed = false;
         }
 
         if (Input.GetKey(KeyCode.LeftControl) && bulletTime > 0)
         {
-            AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
+            if (Input.GetKeyDown(KeyCode.LeftControl)) {
+                AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
+            }
             bulletTime -= 1;
+            if (bulletTime <= 0) {
+                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
+            }
             bulletTimeUI.value = bulletTime;
             if (Time.timeScale > minTimeScale)
             {
@@ -96,6 +112,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if (Input.GetKeyUp(KeyCode.LeftControl) && bulletTime > 0) {
+                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
+            }
             if (Time.timeScale < 1f)
             {
                 Time.timeScale += timeScaleSpeed;
@@ -227,7 +246,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
-            Invoke("PlayerDie", .15f);
+            FindObjectOfType<LevelManager>().LevelLost();
         }
         slider = GameObject.Find("HealthBar").GetComponent<Slider>();
         slider.value = health;
@@ -238,17 +257,14 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "Lava")
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
-            Invoke("PlayerDie", .15f);
+            FindObjectOfType<LevelManager>().LevelLost();
         }
 
         if (hit.gameObject.tag == "Soul") {
             bulletTime = maxBulletTime;
             hasBlink = true;
             bulletTimeUI.value = bulletTime;
+            AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
         }
-    }
-    void PlayerDie()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
