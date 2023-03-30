@@ -93,11 +93,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl) && bulletTime > 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl)) {
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
                 AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
             }
             bulletTime -= 1;
-            if (bulletTime <= 0) {
+            if (bulletTime <= 0)
+            {
                 AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
             }
             bulletTimeUI.value = bulletTime;
@@ -112,7 +114,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyUp(KeyCode.LeftControl) && bulletTime > 0) {
+            if (Input.GetKeyUp(KeyCode.LeftControl) && bulletTime > 0)
+            {
                 AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
             }
             if (Time.timeScale < 1f)
@@ -125,16 +128,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (fireballCountdown > 0) {
+        if (fireballCountdown > 0)
+        {
             fireballCountdown -= 1;
         }
 
-        if (hasBlink) {
+        if (hasBlink)
+        {
             blinkUI.SetActive(true);
-        } else {
+        }
+        else
+        {
             blinkUI.SetActive(false);
         }
-        
+
         // Adjust fixed delta time according to timescale
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         finalSpeed = speed * (1f / Time.timeScale);
@@ -145,6 +152,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (LevelManager.isGameOver)
+        {
+            return;
+        }
         // gets user movement input
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
@@ -260,7 +271,8 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<LevelManager>().LevelLost();
         }
 
-        if (hit.gameObject.tag == "Soul") {
+        if (hit.gameObject.tag == "Soul")
+        {
             bulletTime = maxBulletTime;
             hasBlink = true;
             bulletTimeUI.value = bulletTime;
