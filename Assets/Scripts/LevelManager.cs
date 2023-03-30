@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     public AudioClip winSFX;
     int enemiesKilled = 0;
 
+    private bool isLevelBeat = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,44 +26,55 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGameOver){
+        if (isGameOver)
+        {
             gameText.gameObject.SetActive(true);
         }
         enemiesKilledText.text = string.Format("{0} SLAIN", enemiesKilled);
     }
 
-    private void OnTriggerEnter(Collider other){
-        if (other.CompareTag("Player")){
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
             LevelBeat();
         }
     }
 
-    public void LevelBeat(){
+    public void LevelBeat()
+    {
         isGameOver = true;
+        isLevelBeat = true;
         gameText.text = "Level Complete!";
-        
+
         AudioSource.PlayClipAtPoint(winSFX, transform.position);
-        if (SceneManager.GetActiveScene().name != "Level3"){ //replace "Level3" with the name of the final level in the game.
+        if (SceneManager.GetActiveScene().name != "Level3")
+        { //replace "Level3" with the name of the final level in the game.
             Invoke("LoadLevel", 2f);
         }
     }
 
-    public void LevelLost() {
+    public void LevelLost()
+    {
+        if (isLevelBeat) return;
         isGameOver = true;
         gameText.gameObject.SetActive(true);
         gameText.text = "GAME OVER!";
         Invoke("LoadCurrentLevel", 2);
     }
 
-    void LoadLevel(){
+    void LoadLevel()
+    {
         SceneManager.LoadScene(nextLevel);
     }
 
-    void LoadCurrentLevel() {
+    void LoadCurrentLevel()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void EnemyKilled() {
+    public void EnemyKilled()
+    {
         enemiesKilled += 1;
     }
 }
