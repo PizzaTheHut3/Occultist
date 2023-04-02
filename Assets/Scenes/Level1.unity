@@ -1546,11 +1546,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.0000305, y: 4.1482024, z: 0.6286621}
   m_Center: {x: 2.4999847, y: 2.0741012, z: -0.04272461}
---- !u!1 &126104657 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 650104204, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
-  m_PrefabInstance: {fileID: 204843792}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &154889488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1879,6 +1874,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
+--- !u!1 &204843793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2511137757018096123, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
+  m_PrefabInstance: {fileID: 204843792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &220433191
 GameObject:
   m_ObjectHideFlags: 0
@@ -56193,7 +56193,7 @@ PrefabInstance:
     - target: {fileID: 7964871419325095411, guid: 0f5497a6b4a791a4a9050c26cb506139, type: 3}
       propertyPath: superJumpUI
       value: 
-      objectReference: {fileID: 126104657}
+      objectReference: {fileID: 204843793}
     - target: {fileID: 7964871419325095414, guid: 0f5497a6b4a791a4a9050c26cb506139, type: 3}
       propertyPath: m_Name
       value: Player
