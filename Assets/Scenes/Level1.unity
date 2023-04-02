@@ -39795,6 +39795,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.65, y: 7.254535, z: 1.6577053}
   m_Center: {x: 2, y: 3.6272676, z: 0.0000004172325}
+--- !u!114 &1487192064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1487192064, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
+  m_PrefabInstance: {fileID: 204843792}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1492869333
 GameObject:
   m_ObjectHideFlags: 0
@@ -59864,6 +59875,10 @@ PrefabInstance:
       propertyPath: gameText
       value: 
       objectReference: {fileID: 2140344465}
+    - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1487192064}
     - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
       propertyPath: enemiesKilledText
       value: 
