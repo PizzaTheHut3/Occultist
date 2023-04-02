@@ -116,7 +116,7 @@ MonoBehaviour:
   speed: 2
   projectile: {fileID: 1049895169098164, guid: 9b2ad6251043bdf498f7d207e054fce5, type: 3}
   health: 70
-  soul: {fileID: 4481429258932020956, guid: a499ad84f47d36546a563bfc47bf95bc, type: 3}
+  soul: {fileID: 4481429258932020956, guid: d7848d0d5d2d3be4ab88c9dbb44ceb2d, type: 3}
 --- !u!1 &3018665351323050286
 GameObject:
   m_ObjectHideFlags: 0

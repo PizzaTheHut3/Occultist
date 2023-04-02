@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     public int maxBulletTime = 100;
     private int bulletTime;
     public bool hasBlink = true;
+    public bool hasSuperJump = false;
     public float jumpHeight = 4f;
+    public float superJumpHeight = 20f;
     public float knockback = 2f;
     public float gravity = 40f;
     public float airControl = 3;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private Color crosshairColor;
     private Slider bulletTimeUI;
     private GameObject blinkUI;
+    public GameObject superJumpUI;
 
     // Start is called before the first frame update
     void Start()
@@ -147,6 +150,15 @@ public class PlayerController : MonoBehaviour
         {
             blinkUI.SetActive(false);
         }
+        
+        if (hasSuperJump)
+        {
+            superJumpUI.SetActive(true);
+        }
+        else
+        {
+            superJumpUI.SetActive(false);
+        }
 
         // Adjust fixed delta time according to timescale
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
@@ -172,7 +184,14 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection = input;
             airJumpsLeft = numAirJumps;
-            if (isJumpPressed)
+            if (hasSuperJump && isJumpPressed) 
+            {
+                isJumpPressed = false;
+                hasSuperJump = false;
+                moveDirection.y = Mathf.Sqrt(2 * superJumpHeight * gravity);
+                AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
+            }
+            else if (isJumpPressed)
             {
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
@@ -308,10 +327,20 @@ public class PlayerController : MonoBehaviour
 
         if (hit.gameObject.tag == "Soul")
         {
-            bulletTime = maxBulletTime;
-            hasBlink = true;
-            bulletTimeUI.value = bulletTime;
-            AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
+            SoulCollect();
         }
+
+        if (hit.gameObject.tag == "SuperJumpSoul")
+        {
+            hasSuperJump = true;
+            SoulCollect();
+        }
+    }
+
+    void SoulCollect() {
+        bulletTime = maxBulletTime;
+        hasBlink = true;
+        bulletTimeUI.value = bulletTime;
+        AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
     }
 }
