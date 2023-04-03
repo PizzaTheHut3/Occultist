@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: bc724d71012383149b04e50f6c1afce5, type: 2}
 --- !u!1001 &3693253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
@@ -220,7 +224,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &38432537
 Transform:
@@ -310,6 +314,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -403,6 +411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -494,7 +506,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &63965837
 MeshCollider:
@@ -1191,6 +1203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Firepit_01
       objectReference: {fileID: 0}
+    - target: {fileID: 127986, guid: 9ffa7bc63f3e6a54aba5d5d64f562c12, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 426220, guid: 9ffa7bc63f3e6a54aba5d5d64f562c12, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -1289,7 +1305,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &81205594
 Transform:
@@ -1386,7 +1402,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &110146634
 Transform:
@@ -1477,6 +1493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1557,6 +1577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -1636,6 +1660,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -1732,7 +1760,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &199765136
 Transform:
@@ -1896,7 +1924,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &220433192
 Transform:
@@ -2018,7 +2046,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &232856221
 MeshCollider:
@@ -2902,6 +2930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -2981,6 +3013,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -3083,7 +3119,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &241952298
 MeshCollider:
@@ -3764,7 +3800,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &259499824
 Transform:
@@ -3855,6 +3891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3930,7 +3970,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59244
+  m_Name: pb_Mesh66122
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4161,6 +4201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4244,7 +4288,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &296715060
 Transform:
@@ -4289,7 +4333,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &300552244
 MeshCollider:
@@ -15960,7 +16004,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &319154177
 Transform:
@@ -16437,6 +16481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -16528,6 +16576,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -16627,7 +16679,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &347022468
 Transform:
@@ -16724,7 +16776,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &367561426
 Transform:
@@ -16815,6 +16867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -16894,6 +16950,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -16993,7 +17053,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &381826059
 Transform:
@@ -17090,7 +17150,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &400554737
 Transform:
@@ -17197,7 +17257,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &417970429
 Transform:
@@ -17288,6 +17348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -17374,7 +17438,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &478745629
 Transform:
@@ -17471,7 +17535,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &489717065
 Transform:
@@ -17609,7 +17673,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &500184539
 Transform:
@@ -17699,6 +17763,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -17791,6 +17859,10 @@ PrefabInstance:
     - target: {fileID: 112750, guid: e4dcd401781751f43819a6ffc2916ff2, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Flag_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 112750, guid: e4dcd401781751f43819a6ffc2916ff2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 429436, guid: e4dcd401781751f43819a6ffc2916ff2, type: 3}
       propertyPath: m_RootOrder
@@ -17903,7 +17975,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &604794381
 Transform:
@@ -18391,7 +18463,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &608620204
 MeshCollider:
@@ -18764,7 +18836,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh60012
+  m_Name: pb_Mesh66892
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18933,6 +19005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -19008,7 +19084,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59494
+  m_Name: pb_Mesh66372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19172,7 +19248,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59952
+  m_Name: pb_Mesh66832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19345,7 +19421,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!108 &663667212
 Light:
@@ -19441,7 +19517,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &674521919
 Transform:
@@ -19531,6 +19607,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -19669,6 +19749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -19764,7 +19848,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &704785593
 Transform:
@@ -19795,7 +19879,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58480
+  m_Name: pb_Mesh65356
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19970,7 +20054,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &719583835
 Transform:
@@ -20067,7 +20151,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &731547242
 Transform:
@@ -20157,6 +20241,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -20305,7 +20393,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &793862331
 Transform:
@@ -20396,6 +20484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -20475,6 +20567,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -20572,7 +20668,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &850108040
 Transform:
@@ -20658,7 +20754,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59744
+  m_Name: pb_Mesh66624
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20833,7 +20929,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &854705657
 Transform:
@@ -20930,7 +21026,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &866597269
 Transform:
@@ -21021,6 +21117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -21107,7 +21207,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &923403325
 Transform:
@@ -21201,7 +21301,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &924574976
 Transform:
@@ -21243,7 +21343,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &931458438
 Transform:
@@ -21386,7 +21486,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59094
+  m_Name: pb_Mesh65972
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21555,6 +21655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -21647,6 +21751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_TrainingDummy_01
       objectReference: {fileID: 0}
+    - target: {fileID: 170386, guid: 7dd1406ddff7e0840b1838dcbd1f608e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 449902, guid: 7dd1406ddff7e0840b1838dcbd1f608e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -21733,7 +21841,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &969388192
 Transform:
@@ -21824,6 +21932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -21910,7 +22022,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &983630067
 Transform:
@@ -22012,7 +22124,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &984328957
 MeshCollider:
@@ -22396,7 +22508,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &995994982
 Transform:
@@ -22487,6 +22599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -22567,6 +22683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -22646,6 +22766,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -22738,6 +22862,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -22837,7 +22965,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1078724238
 Transform:
@@ -22928,6 +23056,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Flag_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 112750, guid: e4dcd401781751f43819a6ffc2916ff2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 429436, guid: e4dcd401781751f43819a6ffc2916ff2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23014,7 +23146,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1086303983
 Transform:
@@ -23100,7 +23232,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58604
+  m_Name: pb_Mesh65482
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23269,6 +23401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 184682, guid: 9f532ed8b6689a340a3ddd144e6cfce3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 471012, guid: 9f532ed8b6689a340a3ddd144e6cfce3, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -23355,7 +23491,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1094664504
 Transform:
@@ -23445,6 +23581,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -23542,6 +23682,10 @@ PrefabInstance:
     - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
@@ -23680,6 +23824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -23763,7 +23911,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1150012842
 Transform:
@@ -23798,6 +23946,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -24210,6 +24362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -24308,7 +24464,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1191528634
 Transform:
@@ -24402,7 +24558,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1192351553
 Transform:
@@ -24444,7 +24600,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1200126396
 Transform:
@@ -24543,7 +24699,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1207393234
 Transform:
@@ -25020,6 +25176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -25099,6 +25259,10 @@ PrefabInstance:
     - target: {fileID: 116922, guid: b57d9ac0df33e5e4e99617617b1a3c31, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Archway_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116922, guid: b57d9ac0df33e5e4e99617617b1a3c31, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 462688, guid: b57d9ac0df33e5e4e99617617b1a3c31, type: 3}
       propertyPath: m_RootOrder
@@ -25224,7 +25388,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1256084725
 Transform:
@@ -25318,7 +25482,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1260075216
 Transform:
@@ -25360,7 +25524,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1263915353
 Transform:
@@ -25457,7 +25621,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1285162670
 Transform:
@@ -25547,6 +25711,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -25639,6 +25807,10 @@ PrefabInstance:
     - target: {fileID: 185630, guid: 915d57cf7bbb57c4aac3e318f25b7800, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Undead_Anvil_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 185630, guid: 915d57cf7bbb57c4aac3e318f25b7800, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 424698, guid: 915d57cf7bbb57c4aac3e318f25b7800, type: 3}
       propertyPath: m_RootOrder
@@ -25741,7 +25913,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1298913105
 Transform:
@@ -37467,7 +37639,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1307635981
 Transform:
@@ -37564,7 +37736,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1317928617
 Transform:
@@ -37654,6 +37826,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a18c95b9644d5494e867ca045166588a, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Archway_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a18c95b9644d5494e867ca045166588a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a18c95b9644d5494e867ca045166588a, type: 3}
       propertyPath: m_RootOrder
@@ -37777,6 +37953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -37863,7 +38043,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1367405501
 Transform:
@@ -37960,7 +38140,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1367617526
 Transform:
@@ -38057,7 +38237,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1369949486
 Transform:
@@ -38148,6 +38328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -38228,6 +38412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_01
       objectReference: {fileID: 0}
+    - target: {fileID: 184682, guid: 9f532ed8b6689a340a3ddd144e6cfce3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 471012, guid: 9f532ed8b6689a340a3ddd144e6cfce3, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -38291,7 +38479,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1381718827
 Transform:
@@ -38388,7 +38576,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1388197181
 Transform:
@@ -38487,7 +38675,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1389814967
 MeshCollider:
@@ -38904,6 +39092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -38990,7 +39182,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1407468233
 Transform:
@@ -39076,7 +39268,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59612
+  m_Name: pb_Mesh66492
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39256,7 +39448,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1424839903
 Transform:
@@ -39353,7 +39545,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1430777030
 Transform:
@@ -39444,6 +39636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -39519,7 +39715,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58848
+  m_Name: pb_Mesh65726
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39688,6 +39884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Archway_01
       objectReference: {fileID: 0}
+    - target: {fileID: 116922, guid: b57d9ac0df33e5e4e99617617b1a3c31, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 462688, guid: b57d9ac0df33e5e4e99617617b1a3c31, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -39825,7 +40025,7 @@ GameObject:
   m_TagString: gate1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1492869334
 Transform:
@@ -40007,7 +40207,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59596
+  m_Name: pb_Mesh66476
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40176,6 +40376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -40265,7 +40469,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1510557067
 Transform:
@@ -40949,7 +41153,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1519143188
 Transform:
@@ -52618,7 +52822,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1523692111
 Transform:
@@ -52715,7 +52919,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1533737450
 Transform:
@@ -52812,7 +53016,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1539112554
 Transform:
@@ -52911,7 +53115,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1549200343
 Transform:
@@ -53479,7 +53683,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1561174710
 MeshCollider:
@@ -54157,7 +54361,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1570163464
 Transform:
@@ -54247,6 +54451,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -54343,7 +54551,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1598812399
 Transform:
@@ -54385,7 +54593,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1616932427
 Transform:
@@ -54482,7 +54690,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1633446724
 Transform:
@@ -54579,7 +54787,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1635624637
 Transform:
@@ -54665,7 +54873,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59672
+  m_Name: pb_Mesh66552
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -54850,7 +55058,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1658416386
 MeshCollider:
@@ -55223,7 +55431,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58834
+  m_Name: pb_Mesh65712
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55392,6 +55600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -55490,7 +55702,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1698455178
 Transform:
@@ -55587,7 +55799,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1726328335
 Transform:
@@ -55681,7 +55893,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1733357175
 Transform:
@@ -55734,7 +55946,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1760070374
 Transform:
@@ -55820,7 +56032,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59292
+  m_Name: pb_Mesh66170
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56049,7 +56261,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1790486812
 Transform:
@@ -56217,7 +56429,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1828939785
 Transform:
@@ -56314,7 +56526,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1834270543
 Transform:
@@ -56400,7 +56612,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59376
+  m_Name: pb_Mesh66254
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56575,7 +56787,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1844647902
 Transform:
@@ -56661,7 +56873,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58654
+  m_Name: pb_Mesh65532
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56836,7 +57048,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1859961026
 Transform:
@@ -56927,6 +57139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -57013,7 +57229,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1870848150
 Transform:
@@ -57103,6 +57319,10 @@ PrefabInstance:
     - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194146, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 437206, guid: 6d68e0471a7a80348bd61a32b8c3c7a5, type: 3}
       propertyPath: m_RootOrder
@@ -57202,7 +57422,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1880997592
 Transform:
@@ -57288,7 +57508,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59572
+  m_Name: pb_Mesh66452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57463,7 +57683,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1884639962
 Transform:
@@ -57554,6 +57774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Barrel_Ale_02
       objectReference: {fileID: 0}
+    - target: {fileID: 156990, guid: 69fa40d1da2f2014eadb8de2a1591155, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 431146, guid: 69fa40d1da2f2014eadb8de2a1591155, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57622,6 +57846,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -57715,6 +57943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -57800,6 +58032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Goblin_Throne_01
       objectReference: {fileID: 0}
+    - target: {fileID: 159610, guid: f845dde629ec1ed4f87270f18e06de7a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 480478, guid: f845dde629ec1ed4f87270f18e06de7a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -57881,6 +58117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -57956,7 +58196,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58670
+  m_Name: pb_Mesh65548
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -58133,7 +58373,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1974017233
 MeshCollider:
@@ -58514,7 +58754,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2012871250
 Transform:
@@ -58600,7 +58840,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58574
+  m_Name: pb_Mesh65452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -58832,7 +59072,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2046743305
 Transform:
@@ -58929,7 +59169,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2047454189
 Transform:
@@ -59024,6 +59264,10 @@ PrefabInstance:
     - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Graveyard_Fence_03 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116578, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496744, guid: 935fe9339976fed4db92ebc4fcdf1d67, type: 3}
       propertyPath: m_RootOrder
@@ -59125,7 +59369,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &2064001989
 MeshCollider:
@@ -59456,7 +59700,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59658
+  m_Name: pb_Mesh66538
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -59636,7 +59880,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2129043151
 Transform:
@@ -59726,6 +59970,10 @@ PrefabInstance:
     - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_Name
       value: SF_Prop_Fence_Stone_End_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 134988, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 492372, guid: f61eac853436d3c499c8e062eb67bfbd, type: 3}
       propertyPath: m_RootOrder
@@ -59883,9 +60131,17 @@ PrefabInstance:
       propertyPath: enemiesKilledText
       value: 
       objectReference: {fileID: 1735973873}
+    - target: {fileID: 6882038738904681003, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6882038739187062481, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
       propertyPath: m_Name
       value: EndFlag
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882038739187062481, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6882038739187062482, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
       propertyPath: m_RootOrder
