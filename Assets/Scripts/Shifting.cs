@@ -15,7 +15,7 @@ public class Shifting : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.position = origin + new Vector3(Mathf.Sin(Time.time)*shift, 0, 0);
     }

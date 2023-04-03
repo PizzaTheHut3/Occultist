@@ -7,6 +7,7 @@ public class UndeadHeavyBehavior : MonoBehaviour
     public GameObject player;
     public float speed = 3f;
     public int health = 30;
+    public GameObject soul;
 
     Animator anim;
     // Start is called before the first frame update
@@ -17,7 +18,7 @@ public class UndeadHeavyBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // if player is too far away, skip interaction
         if (Vector3.Distance(transform.position, player.transform.position) > 50f) {
@@ -35,8 +36,13 @@ public class UndeadHeavyBehavior : MonoBehaviour
         }
     }
 
+    
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Lava")
+        {
+            Die();
+        }
         if (collision.gameObject.tag == "Fireball")
         {
             health -= 10;
@@ -49,6 +55,8 @@ public class UndeadHeavyBehavior : MonoBehaviour
 
     void Die()
     {
+        FindObjectOfType<LevelManager>().EnemyKilled();
         Destroy(gameObject);
+        Instantiate(soul, transform.position + new Vector3(0f, 1f, 0f), transform.rotation);
     }
 }

@@ -13,7 +13,12 @@ public class PlayerController : MonoBehaviour
     public float speed = 8f;
     private float finalSpeed;
     public int health = 100;
+    public int maxBulletTime = 100;
+    private int bulletTime;
+    public bool hasBlink = true;
+    public bool hasSuperJump = false;
     public float jumpHeight = 4f;
+    public float superJumpHeight = 20f;
     public float knockback = 2f;
     public float gravity = 40f;
     public float airControl = 3;
@@ -23,13 +28,17 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSFX;
     public AudioClip walkSFX;
     public AudioClip timeSlowSFX;
+    public AudioClip timeSpeedupSFX;
     public AudioClip deathSFX;
     public AudioClip hitSFX;
+    public AudioClip soulCollectSFX;
     private int airJumpsLeft;
     private bool isJumpPressed;
     private bool isBlinkPressed;
     private bool isBlinkActive = false;
     private bool isFireballPressed;
+    private int fireballCountdown;
+    public int fireballCooldown = 60;
     public float timeScaleSpeed = 0.001f;
     public float minTimeScale = 0.2f;
     private float fixedDeltaTime;
@@ -40,7 +49,9 @@ public class PlayerController : MonoBehaviour
     private Slider slider;
     private Image crosshairImage;
     private Color crosshairColor;
-    private bool grounded;
+    private Slider bulletTimeUI;
+    private GameObject blinkUI;
+    public GameObject superJumpUI;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +62,11 @@ public class PlayerController : MonoBehaviour
         finalSpeed = speed;
         crosshairImage = GameObject.Find("Crosshair").GetComponent<Image>();
         crosshairColor = crosshairImage.color;
-        grounded = false;
+        bulletTime = maxBulletTime;
+        hasBlink = true;
+        bulletTimeUI = GameObject.Find("BulletTime").GetComponent<Slider>();
+        bulletTimeUI.value = maxBulletTime;
+        blinkUI = GameObject.Find("Blink");
         numBlinkSteps = (int) (blinkDistance/blinkStep);
     }
 
@@ -71,22 +86,32 @@ public class PlayerController : MonoBehaviour
         {
             isBlinkPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isBlinkPressed = false;
+        }
+
+        if (Input.GetMouseButtonDown(0))
         {
             isFireballPressed = true;
         }
-        if (controller.isGrounded)
+        if (Input.GetMouseButtonUp(0))
         {
-            grounded = true;
-        }
-        else 
-        {
-            grounded = false;
+            isFireballPressed = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl) && bulletTime > 0)
         {
-            AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
+            }
+            bulletTime -= 1;
+            if (bulletTime <= 0)
+            {
+                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
+            }
+            bulletTimeUI.value = bulletTime;
             if (Time.timeScale > minTimeScale)
             {
                 Time.timeScale -= timeScaleSpeed;
@@ -98,6 +123,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if (Input.GetKeyUp(KeyCode.LeftControl) && bulletTime > 0)
+            {
+                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
+            }
             if (Time.timeScale < 1f)
             {
                 Time.timeScale += timeScaleSpeed;
@@ -107,6 +136,30 @@ public class PlayerController : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
+
+        if (fireballCountdown > 0)
+        {
+            fireballCountdown -= 1;
+        }
+
+        if (hasBlink)
+        {
+            blinkUI.SetActive(true);
+        }
+        else
+        {
+            blinkUI.SetActive(false);
+        }
+        
+        if (hasSuperJump)
+        {
+            superJumpUI.SetActive(true);
+        }
+        else
+        {
+            superJumpUI.SetActive(false);
+        }
+
         // Adjust fixed delta time according to timescale
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         finalSpeed = speed * (1f / Time.timeScale);
@@ -117,17 +170,28 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (LevelManager.isGameOver)
+        {
+            return;
+        }
         // gets user movement input
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         input = finalSpeed * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
 
         // handles jumping and double jumping
-        if (grounded)
+        if (controller.isGrounded)
         {
             moveDirection = input;
             airJumpsLeft = numAirJumps;
-            if (isJumpPressed)
+            if (hasSuperJump && isJumpPressed) 
+            {
+                isJumpPressed = false;
+                hasSuperJump = false;
+                moveDirection.y = Mathf.Sqrt(2 * superJumpHeight * gravity);
+                AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
+            }
+            else if (isJumpPressed)
             {
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
@@ -156,13 +220,22 @@ public class PlayerController : MonoBehaviour
 
         // handles blinking. Currently player blinks in the direction they are moving and not the direction the are facing.
         // This means that blinking is always horizontal.
-        if (isBlinkPressed || isBlinkActive)
+        // if (isBlinkPressed && hasBlink)
+        // {
+        //     isBlinkPressed = false;
+        //     hasBlink = false;
+        //     controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
+        //     AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
+        // }
+
+        if ((isBlinkPressed && hasBlink) || isBlinkActive)
         {
             if(!isBlinkActive) 
             {
                 AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
                 isBlinkActive = true;
                 isBlinkPressed = false;
+                hasBlink = false;
                 if(moveHorizontal == 0 && moveVertical == 0)
                 {
                     blinkDirection = transform.forward;
@@ -185,9 +258,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // handles shooting fireball. 
-        if (isFireballPressed)
+        if (isFireballPressed & fireballCountdown <= 0)
         {
             isFireballPressed = false;
+            fireballCountdown = fireballCooldown;
             // camera = transform.GetComponent<Camera>();
             // GameObject cam = FindGameObjectWithTag("MainCamera");
             Instantiate(fireball, transform.position + (transform.forward * 1f) + new Vector3(0f, 1.2f, 0f), Camera.main.transform.rotation);
@@ -237,8 +311,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
-            LevelManager.isGameOver = true;
-            Invoke("PlayerDie", 1f);
+            FindObjectOfType<LevelManager>().LevelLost();
         }
         slider = GameObject.Find("HealthBar").GetComponent<Slider>();
         slider.value = health;
@@ -249,19 +322,25 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "Lava")
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
-            LevelManager.isGameOver = true;
-            Invoke("PlayerDie", 1f);
+            FindObjectOfType<LevelManager>().LevelLost();
+        }
+
+        if (hit.gameObject.tag == "Soul")
+        {
+            SoulCollect();
+        }
+
+        if (hit.gameObject.tag == "SuperJumpSoul")
+        {
+            hasSuperJump = true;
+            SoulCollect();
         }
     }
 
-    // Used to manually set if the player in grounded for moving platforms
-    public void SetGrounded(bool g) 
-    {
-        grounded = g;
-    }
-
-    void PlayerDie()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    void SoulCollect() {
+        bulletTime = maxBulletTime;
+        hasBlink = true;
+        bulletTimeUI.value = bulletTime;
+        AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
     }
 }

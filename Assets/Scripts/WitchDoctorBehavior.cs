@@ -7,6 +7,7 @@ public class WitchDoctorBehavior : MonoBehaviour
     public GameObject player;
     public float speed = 2f;
     public GameObject projectile;
+    public GameObject soul;
     public GameObject firePoint;
     public float attackCooldown = .9f;
     public int health = 20;
@@ -22,7 +23,7 @@ public class WitchDoctorBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // if player is too far away, skip interaction
         if (Vector3.Distance(transform.position, player.transform.position) > 50f)
@@ -52,6 +53,10 @@ public class WitchDoctorBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Lava")
+        {
+            Die();
+        }
         if (collision.gameObject.tag == "Fireball")
         {
             health -= 10;
@@ -64,6 +69,8 @@ public class WitchDoctorBehavior : MonoBehaviour
 
     void Die()
     {
+        FindObjectOfType<LevelManager>().EnemyKilled();
         Destroy(gameObject);
+        Instantiate(soul, transform.position + new Vector3(0f, 1f, 0f), transform.rotation);
     }
 }

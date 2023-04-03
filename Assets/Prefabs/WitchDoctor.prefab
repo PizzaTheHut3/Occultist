@@ -3093,8 +3093,10 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 2
   projectile: {fileID: 1049895169098164, guid: 9b2ad6251043bdf498f7d207e054fce5, type: 3}
+  soul: {fileID: 4481429258932020956, guid: a499ad84f47d36546a563bfc47bf95bc, type: 3}
   firePoint: {fileID: 5411776538725871226}
   attackCooldown: 0.9
+  health: 20
 --- !u!1 &5411776538725902014
 GameObject:
   m_ObjectHideFlags: 0

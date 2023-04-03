@@ -8,41 +8,80 @@ public class LevelManager : MonoBehaviour
 {
     public static bool isGameOver = false;
     public Text gameText;
+    public Text enemiesKilledText;
     public string nextLevel = "";
     public AudioClip winSFX;
+    int enemiesKilled = 0;
+    public Text timerText;
+    public float timer = 0f;
+
+    private bool isLevelBeat = false;
 
     // Start is called before the first frame update
     void Start()
     {
         isGameOver = false;
         gameText.text = "GameOver!";
+        enemiesKilledText.text = "0 SLAIN";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isGameOver){
+        if (isGameOver)
+        {
             gameText.gameObject.SetActive(true);
+        }
+        enemiesKilledText.text = string.Format("{0} SLAIN", enemiesKilled);
+        if (!isGameOver)
+        {
+            timer += Time.deltaTime;
+            timerText.text = string.Format("{0:0.00}", timer);
         }
     }
 
-    private void OnTriggerEnter(Collider other){
-        if (other.CompareTag("Player")){
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
             LevelBeat();
         }
     }
 
-    void LevelBeat(){
+    public void LevelBeat()
+    {
         isGameOver = true;
+        isLevelBeat = true;
         gameText.text = "Level Complete!";
-        
+
         AudioSource.PlayClipAtPoint(winSFX, transform.position);
-        if (SceneManager.GetActiveScene().name != "Level3"){ //replace "Level3" with the name of the final level in the game.
+        if (SceneManager.GetActiveScene().name != "Level3")
+        { //replace "Level3" with the name of the final level in the game.
             Invoke("LoadLevel", 2f);
         }
     }
 
-    void LoadLevel(){
+    public void LevelLost()
+    {
+        if (isLevelBeat) return;
+        isGameOver = true;
+        gameText.gameObject.SetActive(true);
+        gameText.text = "GAME OVER!";
+        Invoke("LoadCurrentLevel", 2);
+    }
+
+    void LoadLevel()
+    {
         SceneManager.LoadScene(nextLevel);
+    }
+
+    void LoadCurrentLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void EnemyKilled()
+    {
+        enemiesKilled += 1;
     }
 }
