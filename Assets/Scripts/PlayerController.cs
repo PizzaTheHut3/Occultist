@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     public int maxBulletTime = 100;
     private int bulletTime;
     public bool hasBlink = true;
+    public bool hasSuperJump = false;
     public float jumpHeight = 4f;
+    public float superJumpHeight = 20f;
     public float knockback = 2f;
     public float gravity = 40f;
     public float airControl = 3;
@@ -33,17 +35,23 @@ public class PlayerController : MonoBehaviour
     private int airJumpsLeft;
     private bool isJumpPressed;
     private bool isBlinkPressed;
+    private bool isBlinkActive = false;
     private bool isFireballPressed;
     private int fireballCountdown;
     public int fireballCooldown = 60;
     public float timeScaleSpeed = 0.001f;
     public float minTimeScale = 0.2f;
     private float fixedDeltaTime;
+    private float blinkStep = 1.3f;
+    private int numBlinkSteps;
+    private int currentBlinkStep = 0;
+    private Vector3 blinkDirection = Vector3.forward;
     private Slider slider;
     private Image crosshairImage;
     private Color crosshairColor;
     private Slider bulletTimeUI;
     private GameObject blinkUI;
+    public GameObject superJumpUI;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +67,7 @@ public class PlayerController : MonoBehaviour
         bulletTimeUI = GameObject.Find("BulletTime").GetComponent<Slider>();
         bulletTimeUI.value = maxBulletTime;
         blinkUI = GameObject.Find("Blink");
+        numBlinkSteps = (int) (blinkDistance/blinkStep);
     }
 
     // Update is called once per frame
@@ -141,6 +150,15 @@ public class PlayerController : MonoBehaviour
         {
             blinkUI.SetActive(false);
         }
+        
+        if (hasSuperJump)
+        {
+            superJumpUI.SetActive(true);
+        }
+        else
+        {
+            superJumpUI.SetActive(false);
+        }
 
         // Adjust fixed delta time according to timescale
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
@@ -166,7 +184,14 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection = input;
             airJumpsLeft = numAirJumps;
-            if (isJumpPressed)
+            if (hasSuperJump && isJumpPressed) 
+            {
+                isJumpPressed = false;
+                hasSuperJump = false;
+                moveDirection.y = Mathf.Sqrt(2 * superJumpHeight * gravity);
+                AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
+            }
+            else if (isJumpPressed)
             {
                 isJumpPressed = false;
                 moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
@@ -195,12 +220,41 @@ public class PlayerController : MonoBehaviour
 
         // handles blinking. Currently player blinks in the direction they are moving and not the direction the are facing.
         // This means that blinking is always horizontal.
-        if (isBlinkPressed && hasBlink)
+        // if (isBlinkPressed && hasBlink)
+        // {
+        //     isBlinkPressed = false;
+        //     hasBlink = false;
+        //     controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
+        //     AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
+        // }
+
+        if ((isBlinkPressed && hasBlink) || isBlinkActive)
         {
-            isBlinkPressed = false;
-            hasBlink = false;
-            controller.Move(blinkDistance * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized);
-            AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
+            if(!isBlinkActive) 
+            {
+                AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
+                isBlinkActive = true;
+                isBlinkPressed = false;
+                hasBlink = false;
+                if(moveHorizontal == 0 && moveVertical == 0)
+                {
+                    blinkDirection = transform.forward;
+                }
+                else
+                {
+                    blinkDirection = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+                }
+            }
+            if(currentBlinkStep == numBlinkSteps) 
+            {
+                isBlinkActive = false;
+                currentBlinkStep = 0;
+            }
+            else
+            {
+                controller.Move(blinkStep * blinkDirection);
+                currentBlinkStep++;
+            }
         }
 
         // handles shooting fireball. 
@@ -273,10 +327,20 @@ public class PlayerController : MonoBehaviour
 
         if (hit.gameObject.tag == "Soul")
         {
-            bulletTime = maxBulletTime;
-            hasBlink = true;
-            bulletTimeUI.value = bulletTime;
-            AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
+            SoulCollect();
         }
+
+        if (hit.gameObject.tag == "SuperJumpSoul")
+        {
+            hasSuperJump = true;
+            SoulCollect();
+        }
+    }
+
+    void SoulCollect() {
+        bulletTime = maxBulletTime;
+        hasBlink = true;
+        bulletTimeUI.value = bulletTime;
+        AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
     }
 }

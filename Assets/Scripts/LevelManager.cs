@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     public string nextLevel = "";
     public AudioClip winSFX;
     int enemiesKilled = 0;
+    public Text timerText;
+    public float timer = 0f;
 
     private bool isLevelBeat = false;
 
@@ -31,6 +33,11 @@ public class LevelManager : MonoBehaviour
             gameText.gameObject.SetActive(true);
         }
         enemiesKilledText.text = string.Format("{0} SLAIN", enemiesKilled);
+        if (!isGameOver)
+        {
+            timer += Time.deltaTime;
+            timerText.text = string.Format("{0:0.00}", timer);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

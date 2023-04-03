@@ -138,7 +138,9 @@ MonoBehaviour:
   health: 100
   maxBulletTime: 1000
   hasBlink: 1
+  hasSuperJump: 0
   jumpHeight: 4
+  superJumpHeight: 20
   knockback: 2
   gravity: 40
   airControl: 3
@@ -155,6 +157,7 @@ MonoBehaviour:
   fireballCooldown: 60
   timeScaleSpeed: 0.05
   minTimeScale: 0.1
+  superJumpUI: {fileID: 0}
 --- !u!114 &1302955675
 MonoBehaviour:
   m_ObjectHideFlags: 0
