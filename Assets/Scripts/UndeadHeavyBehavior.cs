@@ -8,6 +8,7 @@ public class UndeadHeavyBehavior : MonoBehaviour
     public float speed = 3f;
     public int health = 30;
     public GameObject soul;
+    public float maxDist = 20f;
 
     Animator anim;
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class UndeadHeavyBehavior : MonoBehaviour
     void FixedUpdate()
     {
         // if player is too far away, skip interaction
-        if (Vector3.Distance(transform.position, player.transform.position) > 50f) {
+        if (Vector3.Distance(transform.position, player.transform.position) > maxDist) {
             return;
         }
         transform.LookAt(player.transform);
