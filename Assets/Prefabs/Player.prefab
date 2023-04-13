@@ -155,7 +155,7 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
   soulCollectSFX: {fileID: 8300000, guid: 1210f0059d3cb234d9e1384c47d90c59, type: 3}
   fireballCooldown: 60
-  timeScaleSpeed: 0.05
+  timeScaleSpeed: 0.01
   minTimeScale: 0.1
   superJumpUI: {fileID: 0}
 --- !u!114 &1302955675
