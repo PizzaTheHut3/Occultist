@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignPost (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1563,6 +1567,10 @@ PrefabInstance:
     - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_Name
       value: SignPost (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
@@ -4922,6 +4930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableCrate (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5643,6 +5655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignPost (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5699,7 +5715,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-30876
+  m_Name: pb_Mesh-2078
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5867,6 +5883,10 @@ PrefabInstance:
     - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_Name
       value: BreakableCrate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
@@ -6127,6 +6147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignPost (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6244,6 +6268,10 @@ PrefabInstance:
     - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_Name
       value: crate5_brk_LOD0 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
@@ -6643,6 +6671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignPost (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6703,6 +6735,10 @@ PrefabInstance:
     - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_Name
       value: BreakableCrate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
@@ -6962,6 +6998,10 @@ PrefabInstance:
     - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_Name
       value: SignPost (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
@@ -9991,6 +10031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: crate5_brk_LOD0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -10547,6 +10591,10 @@ PrefabInstance:
     - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_Name
       value: crate5_brk_LOD0 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
@@ -13313,6 +13361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: crate5_brk_LOD0 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -14374,6 +14426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignPost (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -14434,6 +14490,10 @@ PrefabInstance:
     - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_Name
       value: SignPost (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
@@ -14760,6 +14820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignPost
       objectReference: {fileID: 0}
+    - target: {fileID: 6189140474480152317, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6189140474480152318, guid: 1100fdb3081773e418b4753622a9e1f1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -14816,6 +14880,10 @@ PrefabInstance:
     - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_Name
       value: BreakableCrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091411200841804, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4945598393487286, guid: 11e305fd02e463944baed8a5d4628225, type: 3}
       propertyPath: m_RootOrder
