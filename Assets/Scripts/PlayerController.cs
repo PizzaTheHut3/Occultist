@@ -11,10 +11,7 @@ public class PlayerController : MonoBehaviour
     Vector3 input, moveDirection;
     public GameObject fireball;
     public float speed = 8f;
-    private float finalSpeed;
     public int health = 100;
-    public int maxBulletTime = 100;
-    private int bulletTime;
     public bool hasBlink = true;
     public bool hasSuperJump = false;
     public float jumpHeight = 4f;
@@ -27,8 +24,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip blinkSFX;
     public AudioClip jumpSFX;
     public AudioClip walkSFX;
-    public AudioClip timeSlowSFX;
-    public AudioClip timeSpeedupSFX;
     public AudioClip deathSFX;
     public AudioClip hitSFX;
     public AudioClip soulCollectSFX;
@@ -39,9 +34,6 @@ public class PlayerController : MonoBehaviour
     private bool isFireballPressed;
     private int fireballCountdown;
     public int fireballCooldown = 60;
-    public float timeScaleSpeed = 0.001f;
-    public float minTimeScale = 0.2f;
-    private float fixedDeltaTime;
     private float blinkStep = 1.3f;
     private int numBlinkSteps;
     private int currentBlinkStep = 0;
@@ -49,25 +41,41 @@ public class PlayerController : MonoBehaviour
     private Slider slider;
     private Image crosshairImage;
     private Color crosshairColor;
-    private Slider bulletTimeUI;
     private GameObject blinkUI;
     public GameObject superJumpUI;
+
+    //bullet time
+    public AudioClip timeSlowSFX;
+    public AudioClip timeSpeedupSFX;
+    public float timeScaleSpeed = 0.001f;
+    public float bulletTimeDrainSpeed = 0.001f;
+    public float minTimeScale = 0.2f;
+    float bulletTimeMeterPerTick;
+    float finalSpeedMultiplier = 1f;
+    float maxBulletTime;
+    float bulletTime;
+    float originalFixedDeltaTime;
+    Slider bulletTimeUI;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         airJumpsLeft = numAirJumps;
-        fixedDeltaTime = Time.fixedDeltaTime;
-        finalSpeed = speed;
         crosshairImage = GameObject.Find("Crosshair").GetComponent<Image>();
         crosshairColor = crosshairImage.color;
-        bulletTime = maxBulletTime;
         hasBlink = true;
-        bulletTimeUI = GameObject.Find("BulletTime").GetComponent<Slider>();
-        bulletTimeUI.value = maxBulletTime;
         blinkUI = GameObject.Find("Blink");
         numBlinkSteps = (int) (blinkDistance/blinkStep);
+
+        //bullettime
+        originalFixedDeltaTime = Time.fixedDeltaTime;
+        bulletTimeUI = GameObject.Find("BulletTime").GetComponent<Slider>();
+        maxBulletTime = bulletTimeUI.maxValue;
+        bulletTime = maxBulletTime;
+        bulletTimeUI.value = maxBulletTime;
+        bulletTimeMeterPerTick = bulletTimeDrainSpeed * maxBulletTime;
+    
     }
 
     // Update is called once per frame
@@ -100,43 +108,6 @@ public class PlayerController : MonoBehaviour
             isFireballPressed = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl) && bulletTime > 0)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
-            }
-            bulletTime -= 1;
-            if (bulletTime <= 0)
-            {
-                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
-            }
-            bulletTimeUI.value = bulletTime;
-            if (Time.timeScale > minTimeScale)
-            {
-                Time.timeScale -= timeScaleSpeed;
-            }
-            else
-            {
-                Time.timeScale = minTimeScale;
-            }
-        }
-        else
-        {
-            if (Input.GetKeyUp(KeyCode.LeftControl) && bulletTime > 0)
-            {
-                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
-            }
-            if (Time.timeScale < 1f)
-            {
-                Time.timeScale += timeScaleSpeed;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
-        }
-
         if (fireballCountdown > 0)
         {
             fireballCountdown -= 1;
@@ -160,9 +131,7 @@ public class PlayerController : MonoBehaviour
             superJumpUI.SetActive(false);
         }
 
-        // Adjust fixed delta time according to timescale
-        Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-        finalSpeed = speed * (1f / Time.timeScale);
+        BulletTime();
 
         // handles crosshair change on enemy acquired
         CrosshairChange();
@@ -177,7 +146,7 @@ public class PlayerController : MonoBehaviour
         // gets user movement input
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-        input = finalSpeed * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+        input = speed * (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
 
         // handles jumping and double jumping
         if (controller.isGrounded)
@@ -214,7 +183,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 input.y = moveDirection.y;
-                moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
+                moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime * finalSpeedMultiplier);
             }
         }
 
@@ -268,8 +237,8 @@ public class PlayerController : MonoBehaviour
         }
 
         // applies gravity and moves player
-        moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+        moveDirection.y -= gravity * Time.deltaTime * finalSpeedMultiplier;
+        controller.Move(moveDirection * Time.deltaTime * finalSpeedMultiplier);
     }
 
     void CrosshairChange()
@@ -340,7 +309,54 @@ public class PlayerController : MonoBehaviour
     void SoulCollect() {
         bulletTime = maxBulletTime;
         hasBlink = true;
-        bulletTimeUI.value = bulletTime;
         AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
+    }
+
+    void BulletTime()
+    {
+
+        // Slow down time
+        if (Input.GetMouseButton(1) && bulletTime > 0)
+        {
+            // Play timeslowdown SFX
+            if (Input.GetMouseButtonDown(1))
+            {
+                AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
+            }
+
+            // Reduce timescale if above minTimeScale
+            if (Time.timeScale > minTimeScale)
+            {
+                Time.timeScale -= timeScaleSpeed;
+            }
+            else
+            {
+                Time.timeScale = minTimeScale;
+            }
+
+            // Reduce bullettime meter
+            bulletTime -= bulletTimeMeterPerTick;
+        }
+        else // Speed up time back to normal
+        {
+            if (Input.GetMouseButtonUp(1) && bulletTime > 0)
+            {
+                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
+            }
+            // Return timescale back to normal
+            if (Time.timeScale < 1f)
+            {  
+                Time.timeScale += timeScaleSpeed;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
+        }
+
+        // Adjust fixed delta time according to timescale
+        Time.fixedDeltaTime = originalFixedDeltaTime * Time.timeScale;
+        finalSpeedMultiplier = 1f / Time.timeScale;
+        bulletTimeUI.value = bulletTime;
     }
 }
