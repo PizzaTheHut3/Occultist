@@ -3150,10 +3150,10 @@ MonoBehaviour:
   player: {fileID: 0}
   spellproject: {fileID: 1049895169098164, guid: 9b2ad6251043bdf498f7d207e054fce5, type: 3}
   spellOrigin: {fileID: 5411776538725871226}
-  shootRate: 2
+  shootRate: 0.9
   health: 20
   enemyEyes: {fileID: 1175395613}
-  FoV: 40
+  FoV: 80
   soul: {fileID: 4481429258932020956, guid: a499ad84f47d36546a563bfc47bf95bc, type: 3}
 --- !u!195 &1992818627
 NavMeshAgent:

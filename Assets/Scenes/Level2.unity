@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66308707, g: 0.14592692, b: 0.5712683, a: 1}
+  m_IndirectSpecularColor: {r: 0.84423816, g: 0.33242005, b: 0.62557113, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1114,6 +1114,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
+--- !u!114 &204843793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1487192064, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
+  m_PrefabInstance: {fileID: 204843792}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &204843794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3954727858140391297, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
+  m_PrefabInstance: {fileID: 204843792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &218583327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6251,6 +6267,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 467476914, guid: 443ba4067c7329b4084327adfd981178, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467476915, guid: 443ba4067c7329b4084327adfd981178, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162455977678731468, guid: 443ba4067c7329b4084327adfd981178, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2162455978071149716, guid: 443ba4067c7329b4084327adfd981178, type: 3}
       propertyPath: m_Name
       value: UndeadHeavy
@@ -6405,6 +6433,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 467476914, guid: 443ba4067c7329b4084327adfd981178, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467476915, guid: 443ba4067c7329b4084327adfd981178, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162455977678731468, guid: 443ba4067c7329b4084327adfd981178, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2162455978071149716, guid: 443ba4067c7329b4084327adfd981178, type: 3}
       propertyPath: m_Name
       value: UndeadHeavy (1)
@@ -9826,6 +9866,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2986412, y: 4.9780436, z: 1.4817461}
   m_Center: {x: 0, y: 2.4890218, z: 0}
+--- !u!1 &1108960250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2511137757018096123, guid: 0dfb4f6209787b6439f9b028a4be3eab, type: 3}
+  m_PrefabInstance: {fileID: 204843792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1150012841
 GameObject:
   m_ObjectHideFlags: 0
@@ -17113,7 +17158,7 @@ PrefabInstance:
     - target: {fileID: 7964871419325095411, guid: 0f5497a6b4a791a4a9050c26cb506139, type: 3}
       propertyPath: superJumpUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1108960250}
     - target: {fileID: 7964871419325095411, guid: 0f5497a6b4a791a4a9050c26cb506139, type: 3}
       propertyPath: superJumpHeight
       value: 30
@@ -19587,9 +19632,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 1389814972}
     m_Modifications:
     - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 204843794}
+    - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
       propertyPath: gameText
       value: 
       objectReference: {fileID: 2140344465}
+    - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
+      propertyPath: nextLevel
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 204843793}
     - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
       propertyPath: enemiesKilledText
       value: 

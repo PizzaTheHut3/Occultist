@@ -100,9 +100,9 @@ public class PlayerController : MonoBehaviour
             isFireballPressed = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl) && bulletTime > 0)
+        if (Input.GetKey(KeyCode.Mouse1) && bulletTime > 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
             }

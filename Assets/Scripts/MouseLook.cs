@@ -16,7 +16,7 @@ public class MouseLook : MonoBehaviour
         playerBody = transform.parent.transform;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        finalMouseSensitivity = mouseSensitivity;
+        finalMouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 200);
     }
 
     // Update is called once per frame
