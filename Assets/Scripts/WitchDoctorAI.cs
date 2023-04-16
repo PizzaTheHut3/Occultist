@@ -72,7 +72,7 @@ public class WitchDoctorAI : MonoBehaviour
         if (distToPlayer <= chaseDist && IsPlayerInClearFOV()){
             currentState = FSMStates.Chase;
         }
-        FaceTraget(transform.position);
+        //FaceTraget(transform.position);
         agent.SetDestination(origin);
     }
 
