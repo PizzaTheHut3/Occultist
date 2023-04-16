@@ -9,6 +9,7 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 200;
     private float finalMultiplier = 1.0f;
     public float pitch = 0;
+    private float finalMouseSensitivity = 200;
 
     // Start is called before the first frame update
     void Start()
