@@ -25,7 +25,7 @@ public class WitchDoctorAI : MonoBehaviour
     float distToPlayer;
     public GameObject spellproject;
     public GameObject spellOrigin;
-    public float shootRate = 2f;
+    public float shootRate = 2.7f;
     float elapsedTime = 0f;
     public int health = 20;
     bool isDead = false;
@@ -66,16 +66,18 @@ public class WitchDoctorAI : MonoBehaviour
     }
 
     void UpdateIdleState(){
+        anim.SetInteger("State", 0);
         agent.stoppingDistance = 0;
         agent.speed = 1.5f;
         if (distToPlayer <= chaseDist && IsPlayerInClearFOV()){
             currentState = FSMStates.Chase;
         }
-        FaceTraget(transform.position);
+        //FaceTraget(transform.position);
         agent.SetDestination(origin);
     }
 
     void UpdateChaseState(){
+        anim.SetInteger("State", 1);
         agent.stoppingDistance = attackDist;
         agent.speed = 3.5f;
         if (distToPlayer <= attackDist){
@@ -88,6 +90,7 @@ public class WitchDoctorAI : MonoBehaviour
     }
 
     void UpdateAttackState(){
+        anim.SetInteger("State", 2);
         if ( distToPlayer <= attackDist){
             currentState = FSMStates.Attack;
         } else if ( distToPlayer > attackDist && distToPlayer <= chaseDist){
@@ -100,6 +103,7 @@ public class WitchDoctorAI : MonoBehaviour
     }
 
     void UpdateDeadState(){
+        anim.SetInteger("State", 0);
         isDead = true;
         FindObjectOfType<LevelManager>().EnemyKilled();
         Destroy(gameObject);
@@ -134,11 +138,8 @@ public class WitchDoctorAI : MonoBehaviour
 
     void EnemySpellCast(){
         if (elapsedTime >= shootRate && !isDead){
-            anim.SetBool("Shoot_b", true);
             Invoke("SpellCast", 1f); //animation duration when complex animations added
             elapsedTime = 0f;
-        } else {
-            anim.SetBool("Shoot_b", false);
         }
         
     }

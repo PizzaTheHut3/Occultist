@@ -20,7 +20,7 @@ public class UndeadheavyAI : MonoBehaviour
     public FSMStates currentState;
     Animator anim;
     public float chaseDist = 50f;
-    public float attackDist = 3f;
+    public float attackDist = 7f;
     public GameObject player;
     float distToPlayer;
     public int health = 30;
@@ -64,16 +64,19 @@ public class UndeadheavyAI : MonoBehaviour
     }
 
     void UpdateIdleState(){
+        anim.SetInteger("State", 0);
         agent.stoppingDistance = 0;
         agent.speed = 1.5f;
         if (distToPlayer <= chaseDist && IsPlayerInClearFOV()){
             currentState = FSMStates.Chase;
         }
-        FaceTraget(transform.position);
+        //FaceTraget(transform.position);
         agent.SetDestination(origin);
+        
     }
 
     void UpdateChaseState(){
+        anim.SetInteger("State", 1);
         agent.speed = 3.5f;
         if (distToPlayer <= attackDist){
             currentState = FSMStates.Attack;
@@ -85,6 +88,8 @@ public class UndeadheavyAI : MonoBehaviour
     }
 
     void UpdateAttackState(){
+        agent.stoppingDistance = 3;
+        anim.SetInteger("State", 2);
         if ( distToPlayer <= attackDist){
             currentState = FSMStates.Attack;
         } else if ( distToPlayer > attackDist && distToPlayer <= chaseDist){
@@ -93,11 +98,12 @@ public class UndeadheavyAI : MonoBehaviour
             currentState = FSMStates.Idle;
         }
         FaceTraget(player.transform.position);
-        EnemyCharge(); //at the moment just teleports forward
+        //EnemyCharge(); //at the moment just teleports forward
         agent.SetDestination(player.transform.position);
     }
 
     void UpdateDeadState(){
+        anim.SetInteger("State", 0);
         isDead = true;
         FindObjectOfType<LevelManager>().EnemyKilled();
         Destroy(gameObject);
@@ -132,11 +138,8 @@ public class UndeadheavyAI : MonoBehaviour
 
     void EnemyCharge(){
         if (elapsedTime >= chargeRate && !isDead){
-            anim.SetBool("Shoot_b", true);
             Invoke("Charge", 1f); //animation duration when complex animations added
             elapsedTime = 0f;
-        } else {
-            anim.SetBool("Shoot_b", false);
         }
         
     }
