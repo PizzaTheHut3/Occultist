@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     int enemiesKilled = 0;
     public Text timerText;
     public float timer = 0f;
-
+    public GameObject UI;
     private bool isLevelBeat = false;
 
     // Start is called before the first frame update
@@ -23,6 +23,16 @@ public class LevelManager : MonoBehaviour
         isGameOver = false;
         gameText.text = "GameOver!";
         enemiesKilledText.text = "0 SLAIN";
+        if (PlayerPrefs.GetInt("ShowHUD", 1) == 0)
+        {
+            UI.SetActive(false);
+        }
+        else
+        {
+            UI.SetActive(true);
+        }
+        PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume", 1);
     }
 
     // Update is called once per frame
@@ -53,9 +63,10 @@ public class LevelManager : MonoBehaviour
         isGameOver = true;
         isLevelBeat = true;
         gameText.text = "Level Complete!";
+        PlayerPrefs.SetFloat("Level1", timer);
 
         AudioSource.PlayClipAtPoint(winSFX, transform.position);
-        if (SceneManager.GetActiveScene().name != "Level3")
+        if (nextLevel != "Level3")
         { //replace "Level3" with the name of the final level in the game.
             Invoke("LoadLevel", 2f);
         }

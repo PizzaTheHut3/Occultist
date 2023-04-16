@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 488244}
   - component: {fileID: 3369438}
   - component: {fileID: 2338588}
+  - component: {fileID: 1323346891}
   m_Layer: 0
   m_Name: SF_Wep_Undead_Halberd_01
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &488244
 Transform:
   m_ObjectHideFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1323346891
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0086217, y: 1.2, z: 0.2166256}
+  m_Center: {x: -6.7394387e-14, y: 4, z: -0.00000047683716}

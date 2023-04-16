@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         crosshairColor = crosshairImage.color;
         hasBlink = true;
         blinkUI = GameObject.Find("Blink");
-        numBlinkSteps = (int) (blinkDistance/blinkStep);
+        numBlinkSteps = (int)(blinkDistance / blinkStep);
 
         //bullettime
         originalFixedDeltaTime = Time.fixedDeltaTime;
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         bulletTime = maxBulletTime;
         bulletTimeUI.value = maxBulletTime;
         bulletTimeMeterPerTick = bulletTimeDrainSpeed * maxBulletTime;
-    
+
     }
 
     // Update is called once per frame
@@ -108,6 +108,43 @@ public class PlayerController : MonoBehaviour
             isFireballPressed = false;
         }
 
+        if (Input.GetKey(KeyCode.Mouse1) && bulletTime > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                AudioSource.PlayClipAtPoint(timeSlowSFX, transform.position);
+            }
+            bulletTime -= 1;
+            if (bulletTime <= 0)
+            {
+                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
+            }
+            bulletTimeUI.value = bulletTime;
+            if (Time.timeScale > minTimeScale)
+            {
+                Time.timeScale -= timeScaleSpeed;
+            }
+            else
+            {
+                Time.timeScale = minTimeScale;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyUp(KeyCode.LeftControl) && bulletTime > 0)
+            {
+                AudioSource.PlayClipAtPoint(timeSpeedupSFX, transform.position);
+            }
+            if (Time.timeScale < 1f)
+            {
+                Time.timeScale += timeScaleSpeed;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
+        }
+
         if (fireballCountdown > 0)
         {
             fireballCountdown -= 1;
@@ -121,7 +158,7 @@ public class PlayerController : MonoBehaviour
         {
             blinkUI.SetActive(false);
         }
-        
+
         if (hasSuperJump)
         {
             superJumpUI.SetActive(true);
@@ -153,7 +190,7 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection = input;
             airJumpsLeft = numAirJumps;
-            if (hasSuperJump && isJumpPressed) 
+            if (hasSuperJump && isJumpPressed)
             {
                 isJumpPressed = false;
                 hasSuperJump = false;
@@ -199,13 +236,13 @@ public class PlayerController : MonoBehaviour
 
         if ((isBlinkPressed && hasBlink) || isBlinkActive)
         {
-            if(!isBlinkActive) 
+            if (!isBlinkActive)
             {
                 AudioSource.PlayClipAtPoint(blinkSFX, transform.position);
                 isBlinkActive = true;
                 isBlinkPressed = false;
                 hasBlink = false;
-                if(moveHorizontal == 0 && moveVertical == 0)
+                if (moveHorizontal == 0 && moveVertical == 0)
                 {
                     blinkDirection = transform.forward;
                 }
@@ -214,7 +251,7 @@ public class PlayerController : MonoBehaviour
                     blinkDirection = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
                 }
             }
-            if(currentBlinkStep == numBlinkSteps) 
+            if (currentBlinkStep == numBlinkSteps)
             {
                 isBlinkActive = false;
                 currentBlinkStep = 0;
@@ -306,7 +343,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SoulCollect() {
+    void SoulCollect()
+    {
         bulletTime = maxBulletTime;
         hasBlink = true;
         AudioSource.PlayClipAtPoint(soulCollectSFX, transform.position);
@@ -345,7 +383,7 @@ public class PlayerController : MonoBehaviour
             }
             // Return timescale back to normal
             if (Time.timeScale < 1f)
-            {  
+            {
                 Time.timeScale += timeScaleSpeed;
             }
             else

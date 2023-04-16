@@ -41,7 +41,7 @@ public class KingBehavior : MonoBehaviour
         {
             if (cooldown <= 0)
             {
-                Instantiate(projectile, firePoint.transform.position + transform.forward, transform.rotation * Quaternion.Euler(5, 0, 0));
+                Instantiate(projectile, firePoint.transform.position + transform.forward, transform.rotation * Quaternion.Euler(10, 0, 0));
                 cooldown = .8f;
                 //anim.SetBool("Shoot_b", true);
             }
