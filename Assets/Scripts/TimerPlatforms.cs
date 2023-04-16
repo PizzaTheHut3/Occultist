@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimerPlatform : MonoBehaviour
+public class TimerPlatforms : MonoBehaviour
 {
 
     public int platformType;
