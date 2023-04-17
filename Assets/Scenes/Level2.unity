@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.84423816, g: 0.33242005, b: 0.62557113, a: 1}
+  m_IndirectSpecularColor: {r: 0.66308707, g: 0.14592692, b: 0.5712683, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1957,7 +1957,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh678986
+  m_Name: pb_Mesh130394
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7291,8 +7291,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1927.8981, y: 0, z: 580.18384}
-  m_Center: {x: 0.00012207031, y: 0.00000081786857, z: 0}
+  m_Size: {x: 1927.8981, y: 20, z: 580.18384}
+  m_Center: {x: 0.00012207031, y: -10, z: 0}
 --- !u!114 &1180988320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13418,6 +13418,10 @@ PrefabInstance:
       propertyPath: gameText
       value: 
       objectReference: {fileID: 2140344465}
+    - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
+      propertyPath: nextLevel
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 1655661135, guid: 44035b66d97b6d9449d3c42011a2e27d, type: 3}
       propertyPath: timerText
       value: 

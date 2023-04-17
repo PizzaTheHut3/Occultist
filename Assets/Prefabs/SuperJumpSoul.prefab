@@ -133,5 +133,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startColor: {r: 1, g: 0.11054215, b: 0, a: 0.8666667}
   endColor: {r: 1, g: 0.04938216, b: 0, a: 0}
-  detectDistance: 30
-  speed: 8
+  detectDistance: 50
+  speed: 15
