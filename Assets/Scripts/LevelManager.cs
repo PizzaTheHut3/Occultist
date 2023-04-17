@@ -63,10 +63,13 @@ public class LevelManager : MonoBehaviour
         isGameOver = true;
         isLevelBeat = true;
         gameText.text = "Level Complete!";
-        PlayerPrefs.SetFloat("Level1", timer);
+        if (PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name, 999) > timer)
+        {
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, timer);
+        }
 
         AudioSource.PlayClipAtPoint(winSFX, transform.position);
-        if (nextLevel != "Level3")
+        if (nextLevel != "Level4")
         { //replace "Level3" with the name of the final level in the game.
             Invoke("LoadLevel", 2f);
         }
