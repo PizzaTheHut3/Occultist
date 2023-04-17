@@ -301,18 +301,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    bool invulnerable = false;
+    public float iseconds = 0.7f;
+    float counter = 0f;
+
     void OnCollisionEnter(Collision hit)
     {
-        if (hit.gameObject.tag == "MeleeEnemy")
-        {
-            AudioSource.PlayClipAtPoint(hitSFX, transform.position);
-            health -= 15;
-            Debug.Log("Player health: " + health);
-        }
-        if (hit.gameObject.tag == "Fireball")
-        {
-            health -= 20;
-            Debug.Log("Player health: " + health);
+        if (!invulnerable){
+            if (hit.gameObject.tag == "MeleeEnemy")
+            {
+                invulnerable = true;
+                AudioSource.PlayClipAtPoint(hitSFX, transform.position);
+                health -= 15;
+                Debug.Log("Player health: " + health);
+            }
+            if (hit.gameObject.tag == "Fireball")
+            {
+                invulnerable = true;
+                health -= 20;
+                Debug.Log("Player health: " + health);
+            }
+        } else {
+            counter += Time.deltaTime;
+            if (counter >= iseconds){
+                invulnerable = false;
+                counter = 0f;
+            }
         }
         if (health <= 0)
         {
